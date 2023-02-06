@@ -1,0 +1,28 @@
+<!--
+ * @Author: wangjinhui
+ * @Date: 2023-01-25 16:30:20
+ * @LastEditors: wangjinhui
+ * @LastEditTime: 2023-01-25 17:01:16
+ * @Description: 注释
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="click-me">点我</div>
+    <script>
+        function getMessage (event) {
+            console.log('getMessage', event.data)
+            console.log(event)
+            if (event.origin != 'http://127.0.0.1:63218') return
+            event.source.postMessage('我传回来了一些数据', event.origin)
+        }
+        window.addEventListener('message', getMessage)
+    </script>
+</body>
+</html>
